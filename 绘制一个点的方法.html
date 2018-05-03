@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3d</title>
+  <script src="lib.js"></script>
+</head>
+<body>
+  <canvas id="webgl" width="500" height="500" style="background-color: pink"></canvas>
+  <script>
+
+    var gl = document.getElementById('webgl').getContext('webgl');
+    var v = "" +
+      "attribute vec4 apos;" +
+      "void main(){" +
+      " gl_PointSize = 13.0;" +
+      " gl_Position = apos;" +
+      "}";
+    var f = "" +
+      "void main(){" +
+      " gl_FragColor = vec4(1.0,0.0,0.0,1.0);" +
+      "}";
+
+    var data = new Float32Array([
+      0.0,0.0,
+      1.0,1.0,
+      -1.0,1.0,
+      -1.0,-1.0,
+      1.0,-1.0
+    ]);
+//    buffer方法
+    var program = initShader(gl,v,f);
+    var buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
+    gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW);
+
+    var posLocation = gl.getAttribLocation(program,'apos');
+
+    gl.vertexAttribPointer(posLocation,2,gl.FLOAT,false,0,0);
+    gl.enableVertexAttribArray(posLocation);
+    gl.drawArrays(gl.POINTS,0,5);
+
+//    另外一种方法
+//    var aposLocation = gl.getAttribLocation(program,'apos');
+//    gl.vertexAttrib4f(aposLocation,0.0,0.5,1.0,1.0);
+
+  </script>
+</body>
+</html>

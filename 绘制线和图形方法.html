@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="lib.js"></script>
+</head>
+<body>
+  <canvas id="webgl" width="500" height="500"></canvas>
+
+  <script>
+    var gl = document.getElementById('webgl').getContext('webgl');
+    var vertexShaderSource = "" +
+      "attribute vec4 apos;" +
+      "void main(){" +
+      " gl_PointSize = 20.0;" +
+      " gl_Position = apos;" +
+      "}";
+    var fragmentShaderSource = "" +
+      "void main(){" +
+      " gl_FragColor = vec4(1.0,0.0,0.0,1.0);" +
+      "}";
+    var program = initShader(gl,vertexShaderSource,fragmentShaderSource);
+
+    var buffer = gl.createBuffer();
+    var data = new Float32Array([
+      -0.5,0.5,
+      0.5,0.5,
+      0.5,-0.5,
+      -0.5,-0.5
+    ]);
+    gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
+    gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW);
+
+    var posLocation = gl.getAttribLocation(program,'apos');
+
+    gl.vertexAttribPointer(posLocation,2,gl.FLOAT,false,0,0);
+    gl.enableVertexAttribArray(posLocation);
+
+    gl.clearColor(0.9,0.9,0.0,1.0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+
+    gl.drawArrays(gl.LINE_LOOP,0,4);
+
+//    gl.drawArrays中的第一个参数有以下几种形式
+//            gl.LINES  这个是每两个点绘制一条线段，
+//            gl.LINE_STRIP 这个是在data中的的第一个元素是起点，最后一个值终点，中间的点依次链接，
+//            gl.LINE_LOOP 跟LINE_STRIP这个类似，但是这个是最后将图形闭合，也就是将起点和终点链接起来，用来绘制闭合图形
+  </script>
+</body>
+</html>
