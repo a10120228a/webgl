@@ -31,7 +31,15 @@
  *            var alocation = gl.getUniformLocation(program,'a');
  *            var a = 2.0;  这里是放大两倍
  *            gl.uniform1f(alocation,a);
+ *    图形的旋转   需要用到少许的数学知识
+ *                x = r.cos(a)  y = r.sin(a) x1 = r.cos(a + b) y1 = r.sin(a + b) x1 = x.cos(b) - y.sin(b)
+ *                y1 = x.sin(b) + y.cos(b)
  *
+ *            旋转sin和cos计算公式
+ *                var angle = 30; 旋转30度
+ *                var t = Math.PI * angle / 180;
+ *                var sinB = Math.sin(t);
+ *                var cosB = Math.cos(t);
  *
  *
  *

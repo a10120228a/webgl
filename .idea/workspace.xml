@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02d4834a-27fc-4b7d-ad41-b99f5cf62981" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webgl笔记.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/图形变换/图形的移动.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/图形变换/图形的缩放.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/绘制一个三角带.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/绘制一个三角扇.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/绘制三角形的方法.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/图形变换/图形的旋转.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/绘制线和图形方法.html" afterPath="$PROJECT_DIR$/绘制线和图形方法.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webgl笔记.js" afterPath="$PROJECT_DIR$/webgl笔记.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,18 +22,18 @@
       <file leaf-file-name="webgl笔记.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/webgl笔记.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="31" column="35" lean-forward="false" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+            <state relative-caret-position="492">
+              <caret line="38" column="39" lean-forward="false" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="图形的缩放.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/图形变换/图形的缩放.html">
+      <file leaf-file-name="图形的旋转.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/图形变换/图形的旋转.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="44" column="2" lean-forward="false" selection-start-line="44" selection-start-column="2" selection-end-line="44" selection-end-column="28" />
+            <state relative-caret-position="353">
+              <caret line="45" column="14" lean-forward="true" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -72,6 +67,7 @@
         <option value="$PROJECT_DIR$/绘制一个三角扇.html" />
         <option value="$PROJECT_DIR$/图形变换/图形的移动.html" />
         <option value="$PROJECT_DIR$/图形变换/图形的缩放.html" />
+        <option value="$PROJECT_DIR$/图形变换/图形的旋转.html" />
         <option value="$PROJECT_DIR$/webgl笔记.js" />
       </list>
     </option>
@@ -240,12 +236,12 @@
       <updated>1525335283261</updated>
       <workItem from="1525335284559" duration="2143000" />
       <workItem from="1525337585946" duration="43000" />
-      <workItem from="1525337630669" duration="5212000" />
+      <workItem from="1525337630669" duration="5919000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7398000" />
+    <option name="totallyTimeSpent" value="8105000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
@@ -257,7 +253,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22153465" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -370,16 +366,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/图形变换/图形的缩放.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="44" column="2" lean-forward="false" selection-start-line="44" selection-start-column="2" selection-end-line="44" selection-end-column="28" />
+        <state relative-caret-position="242">
+          <caret line="31" column="13" lean-forward="true" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/图形变换/图形的旋转.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="45" column="14" lean-forward="true" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/webgl笔记.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="31" column="35" lean-forward="false" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+        <state relative-caret-position="492">
+          <caret line="38" column="39" lean-forward="false" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
           <folding />
         </state>
       </provider>
