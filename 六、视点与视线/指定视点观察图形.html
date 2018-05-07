@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <!--首先要有个视图矩阵
+        默认情况下，视点位于坐标系原点-->
+<canvas id="webgl" width="500" height="500"></canvas>
+  <script>
+    var vertexShaderSource = "" +
+      "attribute vec4 apos;" +
+      "attribute vec4 color;" +
+      "uniform mat4 vm;" + //视图矩阵
+      "varying vec4 vColor;" +
+      "void main(){" +
+      " gl_Position = vm * apos;" +
+      " vColor = color;" +
+      "}";
+    var fragShaderSource = "" +
+      "precision lowp float;" +
+      "varying vec4 vColor;" +
+      "void main(){" +
+      " gl_FragColor = vColor;" +
+      "}"
+
+    var canvas = document.getElementById('webgl');
+    var gl = canvas.getContext('webgl');
+    var program = gl.createProgram();
+    var vertexShader = gl.createShader(gl.VERTEX_SHADER);
+    var fragShader = gl.createShader(gl.FRAGMENT_SHADER);
+    gl.shaderSource(vertexShader,vertexShaderSource);
+    gl.shaderSource(fragShader,fragShaderSource);
+
+    gl.compileShader(vertexShader);
+    gl.compileShader(fragShader);
+
+    gl.attachShader(program,vertexShader);
+    gl.attachShader(program,fragShader);
+
+    gl.linkProgram(program);
+    gl.useProgram(program);
+
+    var aposlocation = gl.getAttribLocation(program,'apos');
+
+    //矩阵归一的函数
+    function narmalize(y){
+      var sum = 0;
+      for(var i = 0;i < y.length; i ++){
+        sum += y[i] * y[i];
+      }
+      var result = Math.sqrt(sum);
+      for(var j = 0;j < y.length;j ++){
+        y[i] = y[i] / result;
+      }
+    }
+    //向量计算函数
+    function cross(a,b){
+      var x = a[1] * b[2] - a[2] * b[1];
+      var y = a[2] * b[0] - a[0] * b[2];
+      var z = a[0] * b[1] - a[1] * b[0];
+
+      return new Float32Array([x,y,z]);
+    }
+    //求点积函数
+    function dot(a,b){
+      return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+    }
+    //求差函数
+    function min(a,b){
+      return new Float32Array([a[0] - b[0],a[1] - b[1],a[2] - b[2]]);
+    }
+    function getVm(x,y){
+      var eye = new Float32Array([x,y,0.5]);//定义一个观察点  视点
+      var lookAt = new Float32Array([0.0,0.0,0.0]);//定义一个目标点
+      var up = new Float32Array([0,1,1]);//定义一个上方向
+    //上边这三点定义一个观察者的状态
+
+      var za = min(eye,lookAt);
+      //格式化z坐标
+      narmalize(za);
+      //格式化上方向
+      narmalize(up);
+      var xa = cross(up,za);
+      var ya = cross(za,xa);
+
+    //构建视图矩阵
+      return new Float32Array([
+        xa[0],ya[0],za[0],0,
+        xa[1],ya[1],za[1],0,
+        xa[2],ya[1],za[1],0,
+        -dot(xa,eye),-dot(ya,eye),-dot(za,eye),1
+      ])
+    }
+
+    var data = new Float32Array([
+      1.0,0.4,0.9,1.0,0.0,0.0,
+      0.0,0.9,0.7,0.0,1.0,0.0,
+      0.5,0.5,0.5,0.0,0.0,1.0,
+
+      0.8,0.7,0.9,0.0,1.0,1.0,
+      0.8,0.9,0.7,1.0,0.0,1.0,
+      0.1,0.6,0.6,1.0,1.0,0.0,
+    ])
+    var buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
+    gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW);
+
+    var BYT = data.BYTES_PER_ELEMENT;
+    var apos = gl.getAttribLocation(program,'apos');
+    var color = gl.getAttribLocation(program,'color');
+    var vm = gl.getUniformLocation(program,'vm');
+
+    gl.vertexAttribPointer(apos,3,gl.FLOAT,false,BYT * 6,0);
+    gl.enableVertexAttribArray(apos);
+    gl.vertexAttribPointer(color,3,gl.FLOAT,false,BYT * 6, BYT * 3);
+    gl.enableVertexAttribArray(color);
+
+    var eyex = 0.25;
+    var eyey = 0.21;
+    function draw(eyex,eyey){
+      var vms = getVm(eyex,eyey);
+      gl.uniformMatrix4fv(vm,false,vms);
+
+      gl.clearColor(0.0,0.0,0.0,1.0);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.drawArrays(gl.TRIANGLES,0,6);
+    }
+    document.onkeydown = function(e){
+      var e = e || window.event;
+      switch(e.keyCode){
+        case 37 :
+          eyex += 0.05;
+          break;
+        case 38 :
+          eyey += 0.05;
+          break;
+        case 39 :
+          eyex -= 0.05;
+          break;
+        case 40 :
+          eyey -= 0.05;
+          break;
+      }
+      draw(eyex,eyey);
+    };
+    draw(eyex,eyey);
+  </script>
+
+</body>
+</html>

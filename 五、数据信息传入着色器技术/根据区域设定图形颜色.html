@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <canvas id="webgl" widht="500" height="500"></canvas>
+  <script src="../lib.js"></script>
+  <script>
+    var vertexShaderSource = "" +
+      "uniform mat4 xf;" +
+      "attribute vec4 apos;" +
+      "varying vec4 vpos;" +
+      "void main(){" +
+      " gl_Position = xf * apos;" +
+      " vpos = apos;" +
+      "}";
+/*/实现原理，是根据vpos的值，来判断区域，然后手动设置值是多少，*/
+    var fragmentShaderSource = "" +
+      "precision lowp float;" +
+      "varying vec4 vpos;" +
+      "void main(){" +
+      " if(vpos.x >= 0.0 && vpos.y >= 0.0){" +
+      "   gl_FragColor = vec4(1.0,0.0,0.0,1.0);" +
+      " }else if(vpos.x >= 0.0 && vpos.y <= 0.0){" +
+      "   gl_FragColor = vec4(0.5,0.5,0.5,1.0);" +
+      " }else if(vpos.x <= 0.0 && vpos.y >= 0.0){" +
+      "   gl_FragColor = vec4(0.0,1.0,0.0,1.0);" +
+      " }else{" +
+      "   gl_FragColor = vec4(0.0,0.0,1.0,1.0);" +
+      " }" +
+      "}";
+
+    var gl = document.getElementById('webgl').getContext('webgl');
+
+    var program = initShader(gl,vertexShaderSource,fragmentShaderSource);
+
+    var xflocation = gl.getUniformLocation(program,'xf');
+
+    bindBuffer(gl,'apos',new Float32Array([
+      -.3,.3,
+      -.5,-.3,
+      .5,.3,
+      .3,-.3
+    ]),program);
+
+    var angle = 0;
+    setInterval(function(){
+      angle += 10;
+      var xf = createXZMatrix(angle);
+      gl.uniformMatrix4fv(xflocation,false,xf);
+
+
+      gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+
+    },100)
+
+  </script>
+</body>
+</html>

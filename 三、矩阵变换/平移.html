@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>矩阵移动</title>
+</head>
+<body>
+  <canvas id="webgl" width="500" height="500"></canvas>
+  <script>
+/*改变顶点的位置来改变图像的位置*/
+    var gl = document.getElementById('webgl').getContext('webgl');
+
+    var vertexShaderSource = "" +
+      "attribute vec4 apos;" +
+      "uniform mat4 xf;" +
+      "void main(){" +
+      " gl_Position = xf * apos;" +
+      "}";
+    var fragmentShaderSource = "" +
+      "void main(){" +
+      " gl_FragColor = vec4(1.0,0.0,0.0,1.0);" +
+      "}";
+    var program = initShader(gl,vertexShaderSource,fragmentShaderSource);
+    var aposlocation = gl.getAttribLocation(program,'apos');
+    var xflocation = gl.getUniformLocation(program,'xf');
+
+    var data =  new Float32Array([
+      0.0,0.0,
+      -.3,-.3,
+      .3,-.3
+    ]);
+    var Tx = 0.1;    //x坐标的位置
+    var Ty = 0.1;    //y坐标的位置
+    var Tz = 0.0;    //z坐标的位置
+    var Tw = 1.0;    //差值
+    var xf = new Float32Array([
+      1.0,0.0,0.0,0.0,
+      0.0,1.0,0.0,0.0,
+      0.0,0.0,1.0,0.0,
+      Tx,Ty,Tz,Tw,
+    ]);
+    gl.uniformMatrix4fv(xflocation,false,xf);
+    var buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
+    gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW);
+
+    gl.vertexAttribPointer(aposlocation,2,gl.FLOAT,false,0,0);
+    gl.enableVertexAttribArray(aposlocation);
+
+    gl.drawArrays(gl.TRIANGLES,0,3);
+    function initShader(gl,vertexShaderSource,fragmentShaderSource){
+      var vertexShader = gl.createShader(gl.VERTEX_SHADER);
+      var fragShader = gl.createShader(gl.FRAGMENT_SHADER);
+
+      gl.shaderSource(vertexShader,vertexShaderSource);
+      gl.shaderSource(fragShader,fragmentShaderSource);
+
+      gl.compileShader(vertexShader);
+      gl.compileShader(fragShader);
+
+      var program = gl.createProgram();
+      gl.attachShader(program,vertexShader);
+      gl.attachShader(program,fragShader);
+
+      gl.linkProgram(program);
+      gl.useProgram(program);
+      return program;
+
+    }
+  </script>
+</body>
+</html>

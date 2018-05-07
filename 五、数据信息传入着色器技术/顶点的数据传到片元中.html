@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--1、创建多个缓冲区-->
+<canvas id="webgl" width="500" height="500"></canvas>
+<script src="../lib.js"></script>
+<script>
+      var vertexShaderSource = "" +
+        "attribute vec4 apos;" +
+        "varying vec4 color;" +
+        "void main(){" +
+        " gl_PointSize = abs(apos.x) * 30.0;" +
+        " gl_Position = apos;" +
+        " color = apos;" +
+        "}";
+      var fragmentShaderSource = "" +
+        "precision lowp float;" + //设置颜色精度
+        "varying vec4 color;" +
+        "void main(){" +
+        " gl_FragColor = color;" +
+        "}" +
+        "";
+
+      var gl = document.getElementById('webgl').getContext('webgl');
+      var program = initShader(gl,vertexShaderSource,fragmentShaderSource);
+      bindBuffer(gl,'apos',new Float32Array([
+        0.2,0.2, 0.5,0.5,0.8,0.8
+      ]),program);
+
+      gl.drawArrays(gl.POINTS,0,3);
+</script>
+</body>
+</html>

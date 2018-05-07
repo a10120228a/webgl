@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <canvas id="webgl"></canvas>
+  <script>
+    var gl = document.getElementById('webgl').getContext('webgl');
+    var vertesShaderSource = "" +
+      "attribute vec4 apos;" +
+      "attribute vec4 pos;" +
+      "uniform mat4 mx;" +
+      "varying vec4 color;" +
+      "void main(){" +
+      " gl_Position = mx * apos;" +
+      " color = pos;" +
+      "}";
+    var fragmentShaderSource = "" +
+      "precision mediump float;" +
+      "varying vec4 color;" +
+      "void main(){" +
+      " gl_FragColor = color;" +
+      "}";
+
+    var program = gl.createProgram();
+    var vertexShader = gl.createShader(gl.VERTEX_SHADER);
+    var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+
+    gl.shaderSource(vertexShader,vertesShaderSource);
+    gl.shaderSource(fragmentShader,fragmentShaderSource);
+
+    gl.compileShader(vertexShader);
+    gl.compileShader(fragmentShader);
+
+    gl.attachShader(program,vertexShader);
+    gl.attachShader(program,fragmentShader);
+
+    gl.linkProgram(program);
+    gl.useProgram(program);
+
+    var aposlocation = gl.getAttribLocation(program,'apos');
+    var poslocation = gl.getAttribLocation(program,'pos');
+    var mxlocation  = gl.getUniformLocation(program,'mx');
+
+    function getMx(left,right,top,bottom,near,far){
+      return new Float32Array([
+        2 / (right - left) ,0 ,0 ,0,
+        0, 2 / (top - bottom) ,0 ,0,
+        0, 0, -2/(far - near) ,0,
+        -(right + left) / (right - left),
+        -(top + bottom) / (top - bottom),
+        -(far + near) / (far - near),
+        1
+      ])
+    }
+
+    var data = new Float32Array([
+      -0.4,0.91,0.0,1.0,0.0,0.0,
+      -0.42,-0.21,0.0,0.0,1.0,0.0,
+      0.4,0.4,0.0,0.0,0.0,1.0,
+
+      -0.2,0.2,0.0,1.0,0.0,0.0,
+      -0.2,-0.2,0.0,0.0,1.0,0.0,
+      0.2,0.2,0.0,0.0,0.0,1.0,
+    ])
+    var buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
+    gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW);
+
+    gl.vertexAttribPointer(aposlocation,3,gl.FLOAT,false,data.BYTES_PER_ELEMENT * 6,0);
+    gl.vertexAttribPointer(poslocation,3,gl.FLOAT,false,data.BYTES_PER_ELEMENT * 6,data.BYTES_PER_ELEMENT * 3);
+
+    gl.enableVertexAttribArray(aposlocation);
+    gl.enableVertexAttribArray(poslocation);
+
+    var near = 0.0;
+    var far = 1.0;
+
+    var vm = getMx(-0.5,0.5,-0.5,0.5,far,near);
+
+    gl.uniformMatrix4fv(mxlocation,false,vm);
+
+    gl.clearColor(0.0,1.0,1.0,1.0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.drawArrays(gl.TRIANGLE_STRIP,0,3);
+
+
+
+
+
+
+  </script>
+</body>
+</html>

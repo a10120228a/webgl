@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <!-- 总的来说，如果想解决缺角现象，则是将目标向后推，或者是说把z轴往后移动-->
+  <canvas id="webgl" width="500" height="500"></canvas>
+  <script src="../lib.js"></script>
+  <script>
+    var gl = document.getElementById('webgl').getContext('webgl');
+    var vertexShaderSource = "" +
+      "attribute vec4 pos;" +
+      "attribute vec4 a_Color;" +
+      "uniform mat4 u_mx;" +
+      "varying vec4 v_Color;" +
+      "void main(){" +
+      " gl_Position = u_mx * pos;" +
+      " v_Color = a_Color;" +
+      "}";
+    var fragmentShaderSource = "" +
+      "precision lowp float;" +
+      "varying vec4 v_Color;" +
+      "void main(){" +
+      " gl_FragColor = v_Color;" +
+      "}";
+    var program = initShader(gl,vertexShaderSource,fragmentShaderSource);
+
+    var poslocation = gl.getAttribLocation(program,'pos');
+    var mxlocation = gl.getUniformLocation(program,'u_mx');
+    var acolorlocation = gl.getAttribLocation(program,'a_Color');
+
+    var data = new Float32Array([
+      0.0,0.6,-0.5,0.4,1.0,0.4,
+      -0.45,-0.4,-0.51,0.4,1.0,0.1,
+      0.5,-0.4,-0.5,1.0,0.4,0.4,
+      0.5,0.4,-0.2,1.0,0.4,0.4,
+      -0.5,0.4,-0.2,1.0,1.0,0.3,
+      0.0,-0.6,-0.2,1.0,1.0,0.4,
+    ]);
+
+    var buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
+    gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW);
+
+    var BYE = data.BYTES_PER_ELEMENT;
+    gl.vertexAttribPointer(poslocation,3,gl.FLOAT,false,BYE * 6,0);
+    gl.vertexAttribPointer(acolorlocation,3,gl.FLOAT,false,BYE * 6,BYE * 3);
+    gl.enableVertexAttribArray(poslocation);
+    gl.enableVertexAttribArray(acolorlocation);
+
+    var eyex = 0.0;
+    var eyey = 0.0;
+    var eyez = 0.0;
+    var near = 0.0;
+    var far = 0.5;
+    function draw(){
+      var a = getVm(-1.0,1.0,-1.0,1.0,far,near);
+      var b = getMatrix(eyex,eyey,eyez);
+      gl.uniformMatrix4fv(mxlocation,false,mixMatrix(a,b));
+      gl.clearColor(0.0,1.0,1.0,1.0);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.drawArrays(gl.TRIANGLES,0,6);
+    }
+    //32 37 383940
+    document.onkeydown = function(e){
+      switch(e.keyCode){
+        case 32 : eyez += 0.05;break;
+        case 17 : eyez -= 0.05;break;
+        case 37 : eyex -= 0.01;break;
+        case 38 : eyey += 0.01;break;
+        case 39 : eyex += 0.01;break;
+        case 40 : eyey -= 0.01;break;
+      }
+      draw();
+    }
+  </script>
+</body>
+</html>

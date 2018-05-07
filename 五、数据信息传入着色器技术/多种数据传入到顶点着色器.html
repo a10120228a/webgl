@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <!--1、创建多个缓冲区-->
+  <canvas id="webgl" width="500" height="500"></canvas>
+  <script src="../lib.js"></script>
+  <script>
+//    var vertexShaderSource = "" +
+//      "attribute vec4 apos;" +
+//      "attribute float size;" +
+//      "void main(){" +
+//      " gl_PointSize = size;" +
+//      " gl_Position = apos;" +
+//      "}";
+//    var fragmentShaderSource = "" +
+//      "void main(){" +
+//      " gl_FragColor = vec4(1.0,0.0,0.0,1.0);" +
+//      "}" +
+//      "";
+//
+//    var gl = document.getElementById('webgl').getContext('webgl');
+//    var program = initShader(gl,vertexShaderSource,fragmentShaderSource);
+//    bindBuffer(gl,'apos',new Float32Array([
+//      0.0,0.0,
+//      0.3,0.5,
+//    ]),program,2);
+//    bindBuffer(gl,'size',new Float32Array([
+//      10.0,30.0
+//    ]),program,1);
+//
+//    gl.drawArrays(gl.POINTS,0,2);
+  </script>
+  <!--2.通过偏移参数-->
+  <script>
+    var vertexShaderSource = "" +
+      "attribute vec4 apos;" +
+      "attribute float size;" +
+      "void main(){" +
+      " gl_PointSize = size;" +
+      " gl_Position = apos;" +
+      "}";
+    var fragmentShaderSource = "" +
+      "void main(){" +
+      " gl_FragColor = vec4(1.0,0.0,0.0,1.0);" +
+      "}" +
+      "";
+
+    var gl = document.getElementById('webgl').getContext('webgl');
+    var program = initShader(gl,vertexShaderSource,fragmentShaderSource);
+
+    var buffer = gl.createBuffer();
+    var data = new Float32Array([
+      0.0,0.0, 10.0,
+      0.5,0.5, 30.0,
+      0.2,0.2, 50.0
+    ])
+
+    gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
+    gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW);
+    var aposlocation = gl.getAttribLocation(program,'apos');
+    var sizeLocation = gl.getAttribLocation(program,'size');
+
+    gl.vertexAttribPointer(aposlocation,2,gl.FLOAT,false,data.BYTES_PER_ELEMENT * 3,0);
+    gl.vertexAttribPointer(sizeLocation,1,gl.FLOAT,false,data.BYTES_PER_ELEMENT * 3,data.BYTES_PER_ELEMENT * 2);
+
+    gl.enableVertexAttribArray(aposlocation);
+    gl.enableVertexAttribArray(sizeLocation);
+
+    gl.drawArrays(gl.POINTS,0,3);
+  </script>
+</body>
+</html>

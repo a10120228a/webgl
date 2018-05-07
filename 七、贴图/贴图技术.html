@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <canvas id="webgl" width="500" height="500"></canvas>
+  <script src="../lib.js"></script>
+  <script>
+    var gl = document.getElementById('webgl').getContext('webgl');
+    var vertexShaderSource = "" +
+      "attribute vec4 pos;" +
+      "attribute vec2 texPos;" +
+      "varying vec2 v_texPos;" +
+      "void main(){" +
+      " gl_Position = pos;" +
+      " v_texPos = texPos;" +
+      "}";
+    var fragmentShaderSource = "" +
+      "precision lowp float;" +
+      "varying vec2 v_texPos;" +
+      "uniform sampler2D ss;" +
+      "void main(){" +
+      " gl_FragColor = texture2D(ss,v_texPos);" +
+      "}";
+
+    var program = initShader(gl,vertexShaderSource,fragmentShaderSource);
+    var data = new Float32Array([
+      0.0,0.0, 0.0,1.0,
+      0.0,-0.5, 0.0,0.0,
+      0.5,0.0,1.0,1.0,
+      0.5,-0.5,1.0,0.0,
+    ])
+    var buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
+    gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW);
+
+    var apos = gl.getAttribLocation(program,'pos');
+    var texPos = gl.getAttribLocation(program,'texPos');
+
+    var texlocation = gl.getUniformLocation(program,'ss');
+
+    var bye = data.BYTES_PER_ELEMENT;
+    gl.vertexAttribPointer(apos,2,gl.FLOAT,false,bye * 4,0);
+    gl.enableVertexAttribArray(apos);
+
+    gl.vertexAttribPointer(texPos,2,gl.FLOAT,false,bye * 4, bye * 2);
+    gl.enableVertexAttribArray(texPos);
+
+    function load(url,callback){
+      var img = new Image();
+      img.src = url;
+      img.onload = function(){
+        callback(img);
+      }
+    }
+    load('./aaa.png',function(img){
+      var tex = gl.createTexture();
+      gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,1);
+      gl.activeTexture(gl.TEXTURE0);
+      gl.bindTexture(gl.TEXTURE_2D,tex);
+
+
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+      //设置图片纹理的横纵平铺方式
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+
+
+
+      gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,gl.RGB,gl.UNSIGNED_BYTE,img);
+      gl.uniform1i(texlocation,0);
+
+      gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+
+
+    })
+
+
+  </script>
+</body>
+</html>

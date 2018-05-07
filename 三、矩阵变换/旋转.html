@@ -2,57 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>旋转</title>
 </head>
 <body>
 <canvas id="webgl" width="500" height="500"></canvas>
-<!--<script src="lib.js"></script>-->
 <script>
   var gl = document.getElementById('webgl').getContext('webgl');
+
   var vertexShaderSource = "" +
     "attribute vec4 apos;" +
-    "uniform float sinB;" +
-    "uniform float cosB;" +
+    "uniform mat4 xf;" +
     "void main(){" +
-    " gl_Position.x = apos.x * cosB - pos.y * sinB;" +
-    " gl_Position.y = apos.y * sinB + pos.y * cosB;" +
-    " gl_Position.z = 0.0;" +
-    " gl_Position.w = 1.0;" +
+    " gl_Position = xf * apos;" +
+    " gl_PointSize = 20.0;" +
     "}";
   var fragmentShaderSource = "" +
     "void main(){" +
     " gl_FragColor = vec4(1.0,0.0,0.0,1.0);" +
-    "}";
-
+    "}"
   var program = initShader(gl,vertexShaderSource,fragmentShaderSource);
 
-  var buffer = gl.createBuffer();
+  var aposlocation = gl.getAttribLocation(program,'apos');
+
+
   var data = new Float32Array([
     0.0,0.0,
-    -0.5,-0.5,
-    0.5,-0.5,
+    0.0,1.0,
+    0.0,0.0
   ]);
 
+  var buffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
   gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW);
 
-  var aposlocation = gl.getAttribLocation(program,'apos');
-  var alocation = gl.getUniformLocation(program,'sinB');
-  var blocation = gl.getUniformLocation(program,'cosB');
+
+  var xflocation = gl.getUniformLocation(program,'xf');
+
+
 
   gl.vertexAttribPointer(aposlocation,2,gl.FLOAT,false,0,0);
   gl.enableVertexAttribArray(aposlocation);
 
-  var a = 1.4;
-  gl.uniform1f(alocation,a);
+  var angle = 0;
 
-  gl.drawArrays(gl.TRIANGLES,0,3);
+  function run(){
+    angle ++;
+    var t = Math.PI * angle / 180;
 
+    var cosB = Math.cos(t);//如果这两个都是0.0   则会在原点的地方画一个点，会导致看不见
+    var sinB = Math.sin(t);//
+    var xf = new Float32Array([
+      cosB , -sinB, 0.0,0.0,
+      sinB , cosB , 0.0,0.0,
+      0.0,   0.0,   1.0,0.0,
+      0.0,   0.0,   0.0,1.0
+    ])
 
+    gl.uniformMatrix4fv(xflocation,false,xf);
+    gl.clearColor(0.0,1.0,0.0,1.0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.drawArrays(gl.POINTS,2,1);
+    gl.drawArrays(gl.LINES,0,2);
 
+  }
 
-
-
+  run();
+  setInterval(run,30);
 
   function initShader(gl,vertexShaderSource,fragmentShaderSource){
     var vertexShader = gl.createShader(gl.VERTEX_SHADER);
@@ -67,11 +82,12 @@
     var program = gl.createProgram();
 
     gl.attachShader(program,vertexShader);
-    gl.attachShader(program,fragmentShader)
+    gl.attachShader(program,fragmentShader);
 
     gl.linkProgram(program);
     gl.useProgram(program);
     return program;
+
   }
 </script>
 </body>

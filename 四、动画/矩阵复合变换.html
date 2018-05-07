@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<canvas id="webgl" width="500" height="500"></canvas>
+<script>
+  var gl = document.getElementById('webgl').getContext('webgl');
+  var vertexShaderSource = "" +
+    "attribute vec4 apos;" +
+    "uniform mat4 xf;" +
+    "void main(){" +
+    " gl_Position = xf * apos;" +
+    "}";
+  var fragmentShaderSource = "" +
+    "void main(){" +
+    " gl_FragColor = vec4(1.0,0.0,0.0,1.0);" +
+    "}";
+  var program = initShader(gl,vertexShaderSource,fragmentShaderSource);
+
+
+
+  var sx = 1.0;
+  var sy = 1.0;
+  var f = new Float32Array([
+    sx,0.0,0.0,0.0,
+    0.0,sy,0.0,0.0,
+    0.0,0.0,1.0,0.0,
+    0.0,0.0,0.0,1.0
+  ]);
+
+  var tx = 0.1;
+  var ty = 0.5;
+
+  var py = new Float32Array([
+    1.0,0.0,0.0,0.0,
+    0.0,1.0,0.0,0.0,
+    0.0,0.0,1.0,0.0,
+    tx,ty,0.0,1.0,
+  ])
+
+  var aposlocation = gl.getAttribLocation(program,'apos');
+  var xflocation = gl.getUniformLocation(program,'xf');
+  var buffer = gl.createBuffer();
+  var data = new Float32Array([
+    0.0,0.0,
+    -0.3,-0.3,
+    0.3,-0.3
+  ]);
+  var a = mix(py,f);
+
+  gl.uniformMatrix4fv(xflocation,false,a);
+
+  gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
+  gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW);
+  gl.vertexAttribPointer(aposlocation,2,gl.FLOAT,false,0,0);
+  gl.enableVertexAttribArray(aposlocation);
+
+  gl.drawArrays(gl.TRIANGLES,0,3);
+
+
+
+
+  function mix(a,b){
+    var result = new Float32Array(16);
+    for(var i = 0;i < 4;i ++){
+      result[i] = a[i] * b[0] + a[i + 4] * b[1] + a[i + 8] * b[2] + a[i + 12] * b[3];
+      result[i + 4] = a[i] * b[4] + a[i + 4] * b[5] + a[i + 8] * b[6] + a[i + 12] * b[7];
+      result[i + 8] = a[i] * b[8] + a[i + 4] * b[9] + a[i + 8] * b[10] + a[i + 12] * b[11];
+      result[i + 12] = a[i] * b[12] + a[i + 4] * b[13] + a[i + 8] * b[14] + a[i + 12] * b[15];
+    }
+    return result;
+  }
+
+  function initShader(gl,vertexShaderSource,fragmentShaderSource){
+    var vertexShader = gl.createShader(gl.VERTEX_SHADER);
+    var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+
+    gl.shaderSource(vertexShader,vertexShaderSource);
+    gl.shaderSource(fragmentShader,fragmentShaderSource);
+
+    gl.compileShader(vertexShader);
+    gl.compileShader(fragmentShader);
+
+    var program = gl.createProgram();
+
+    gl.attachShader(program,vertexShader);
+    gl.attachShader(program,fragmentShader);
+    gl.linkProgram(program);
+    gl.useProgram(program);
+    return program;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <canvas id="webgl" width="500" height="500"></canvas>
+  <script>
+    var gl = document.getElementById('webgl').getContext('webgl');
+
+    var vertexShaderSource = "" +
+      "attribute vec4 apos;" +
+      "uniform mat4 xf;" +
+      "void main(){" +
+      " gl_Position = xf * apos;" +
+      "}";
+    var fragmentShaderSource = "" +
+      "void main(){" +
+      " gl_FragColor = vec4(1.0,0.0,0.0,1.0);" +
+      "}"
+    var program = initShader(gl,vertexShaderSource,fragmentShaderSource);
+
+    var aposlocation = gl.getAttribLocation(program,'apos');
+
+
+    var data = new Float32Array([
+      0.0,0.0,
+      -0.3,-0.3,
+      0.3,-0.3,
+      -0.3,0.3
+    ]);
+
+    var buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
+    gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW);
+    var xflocation = gl.getUniformLocation(program,'xf');
+
+    var sx = 0.8;//如果这两个都是0.0   则会在原点的地方画一个点，会导致看不见
+    var sy = 0.8;//
+    var sz = 0.0;
+    var sw = 1.2;
+
+    var xf = new Float32Array([
+      sx , 0.0,0.0,0.0,
+      0.0,sy,0.0,0.0,
+      0.0,0.0,sz,0.0,
+      0.0,0.0,0.0,sw
+    ])
+
+
+
+    gl.uniformMatrix4fv(xflocation,false,xf);
+
+
+
+    gl.vertexAttribPointer(aposlocation,2,gl.FLOAT,false,0,0);
+    gl.enableVertexAttribArray(aposlocation);
+
+    gl.clearColor(1.0,1.0,1.0,1.0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.drawArrays(gl.TRIANGLES,0,4);
+
+
+
+
+    function initShader(gl,vertexShaderSource,fragmentShaderSource){
+      var vertexShader = gl.createShader(gl.VERTEX_SHADER);
+      var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+
+      gl.shaderSource(vertexShader,vertexShaderSource);
+      gl.shaderSource(fragmentShader,fragmentShaderSource);
+
+      gl.compileShader(vertexShader);
+      gl.compileShader(fragmentShader);
+
+      var program = gl.createProgram();
+
+      gl.attachShader(program,vertexShader);
+      gl.attachShader(program,fragmentShader);
+
+      gl.linkProgram(program);
+      gl.useProgram(program);
+      return program;
+
+    }
+  </script>
+</body>
+</html>
