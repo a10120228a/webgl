@@ -2,34 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02d4834a-27fc-4b7d-ad41-b99f5cf62981" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/七、贴图/贴图技术.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/三、矩阵变换/平移.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/三、矩阵变换/旋转.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/三、矩阵变换/缩放.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/五、数据信息传入着色器技术/多种数据传入到顶点着色器.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/五、数据信息传入着色器技术/根据区域设定图形颜色.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/五、数据信息传入着色器技术/顶点的数据传到片元中.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/八、可视范围/可视范围.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/八、可视范围/缺角现象.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/六、视点与视线/指定视点观察图形.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/六、视点与视线/视点、目标点和上方向.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/六、视点与视线/视点控制实例.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/四、动画/动画原理.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/四、动画/矩阵复合变换.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/图形变换/图形的旋转.html" afterPath="$PROJECT_DIR$/二、图形变换/图形的旋转.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/图形变换/图形的移动.html" afterPath="$PROJECT_DIR$/二、图形变换/图形的移动.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/图形变换/图形的缩放.html" afterPath="$PROJECT_DIR$/二、图形变换/图形的缩放.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/绘制一个三角带.html" afterPath="$PROJECT_DIR$/一、webgl基本知识/绘制一个三角带.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/绘制一个三角扇.html" afterPath="$PROJECT_DIR$/一、webgl基本知识/绘制一个三角扇.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/绘制一个点的方法.html" afterPath="$PROJECT_DIR$/一、webgl基本知识/绘制一个点的方法.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/绘制三角形的方法.html" afterPath="$PROJECT_DIR$/一、webgl基本知识/绘制三角形的方法.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/绘制线和图形方法.html" afterPath="$PROJECT_DIR$/一、webgl基本知识/绘制线和图形方法.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib.js" afterPath="$PROJECT_DIR$/lib.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.md" afterPath="$PROJECT_DIR$/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webgl笔记.js" afterPath="$PROJECT_DIR$/webgl笔记.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -47,11 +21,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="webgl笔记.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="webgl笔记.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webgl笔记.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="315" column="2" lean-forward="true" selection-start-line="315" selection-start-column="2" selection-end-line="315" selection-end-column="2" />
+            <state relative-caret-position="132">
+              <caret line="300" column="2" lean-forward="true" selection-start-line="300" selection-start-column="2" selection-end-line="300" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="readme.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/readme.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="8" column="60" lean-forward="false" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -135,10 +119,10 @@
         <option value="$PROJECT_DIR$/六、视点与视线/指定视点观察图形.html" />
         <option value="$PROJECT_DIR$/八、可视范围/可视范围.html" />
         <option value="$USER_HOME$/Desktop/Main(2).jsx" />
-        <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/lib.js" />
         <option value="$PROJECT_DIR$/八、可视范围/缺角现象.html" />
         <option value="$PROJECT_DIR$/webgl笔记.js" />
+        <option value="$PROJECT_DIR$/readme.md" />
       </list>
     </option>
   </component>
@@ -189,20 +173,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="webgl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webgl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webgl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="八、可视范围" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -328,12 +298,12 @@
       <workItem from="1525405736912" duration="15105000" />
       <workItem from="1525433634549" duration="2072000" />
       <workItem from="1525482726024" duration="3474000" />
-      <workItem from="1525657186239" duration="21775000" />
+      <workItem from="1525657186239" duration="22307000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52406000" />
+    <option name="totallyTimeSpent" value="52938000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -345,7 +315,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="23" width="1440" height="877" extended-state="6" />
+    <frame x="-1" y="23" width="1440" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20833333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -354,7 +324,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3069307" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3069307" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -648,14 +618,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/readme.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/六、视点与视线/指定视点观察图形.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -690,8 +652,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/webgl笔记.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="315" column="2" lean-forward="true" selection-start-line="315" selection-start-column="2" selection-end-line="315" selection-end-column="2" />
+        <state relative-caret-position="132">
+          <caret line="300" column="2" lean-forward="true" selection-start-line="300" selection-start-column="2" selection-end-line="300" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="8" column="60" lean-forward="false" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
           <folding />
         </state>
       </provider>
