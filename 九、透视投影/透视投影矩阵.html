@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <canvas id="webgl" width="500" height="500"></canvas>
+  <script>
+    var vertexShaderSource = "" +
+      "attribute vec4 apos;" +
+      "attribute vec4 acolor;" +
+      "uniform mat4 uvm;" +
+      "varying vec4 vcolor;" +
+      "void main(){" +
+      " gl_Position = uvm * apos;" +
+      " vcolor = acolor;" +
+      "}";
+    var fragmentShaderSource = "" +
+      "precision lowp float;" +
+      "varying vec4 vcolor;" +
+      "void main(){" +
+      " gl_FragColor = vcolor;" +
+      "}" +
+      "";
+    function dot(a,b){
+      return a[0] * b[0] + a[1] * b[1] +a[2] * b[2];
+    }
+
+    function minus(a,b){
+      return new Float32Array([a[0]-b[0],a[1]-b[1],a[2]-b[2]])
+    }
+    function cross(a,b){
+      let x = a[1] * b[2] - a[2] * b[1];
+      let y = a[2] * b[0] - a[0] * b[2];
+      let z = a[0] * b[1] - a[1] * b[0];
+      return new Float32Array([x,y,z]);
+    }
+    function normalize(v){
+      let sum = 0;
+      for(let i = 0;i < v.length;i ++){
+        sum += v[i] * v[i];
+      }
+      let result = Math.sqrt(sum);
+      for(let j = 0;j < v.length;j ++){
+        v[j] = v[j] / result;
+      }
+    }
+    //得到透视投影矩阵
+    function getTs(fov,aspect,far,near){
+      fov = fov * Math.PI / 180;
+      return new Float32Array([
+        1/(aspect * Math.tan(fov / 2)),0,0,0,
+        0,1/Math.tan(fov/2),0,0,
+        0,0,(far + near)/(far-near),-(far * near)/(far - near),
+        0,0,1,0,
+      ])
+    }
+
+    //解决之道
+
+ </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

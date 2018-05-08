@@ -338,19 +338,43 @@
  *
  *
  *
- *     正射投影矩阵方程式
+ *     正射投影矩阵方程式（在实际的运用中要将这个矩阵旋转，也就是说第一列是矩阵第一行，以此类推）
  *
- *          |   2/right-left,           0,              0,       -(right + left) / (right - left)   |
- *          |          0        2/top - bottom,         0,       -(top + bottom) / (top - bottom)   |
- *          |          0,               0,         -2/far-near,  -(far + near) / (far - near)       |
- *          |          0,               0,              0,                      1                   |
+ *          r:right    l:left  t:top  b:bottom  f:far   n:near
+ *
+ *          |  2/(r -l) ,               0,                0,               0,|
+ *          |     0,                2/(t - b),            0,               0,|
+ *          |     0,                    0,            -2/(f - n),          0,|
+ *          |-(r + l)/(r-l),      -(t + b)/(t-b),    -(f+n)/(f-n),         1,|
  *
  *      通过创建正射投影矩阵，将矩阵和顶点坐标联系在一起，然后给出渲染空间，
  *
  *
+ *    透视投影矩阵
+ *
+ *        fov:指定垂直视角   aspect:宽度/高度   near far这两个和上边的两个相同
+ *
+ *        |1/aspect * tan (fov / 2),                    0,                    0,                            0,               |
+ *        |           0,                         1/tan(fov/2),                0,                            0,               |
+ *        |           0,                                0,      -(far + near)/(far - near),     -(2 * far * near)/(far-near),|
+ *        |           0,                                0,                    0,                            1                |
  *
  *
+ *      物体的前后关系
  *
+ *          默认情况下，webgl是按照顶点在缓冲区中的顺序绘制的
+ *
+ *          后绘制的会遮挡先绘制的图形
+ *
+ *       解决方法：
+ *
+ *          启动隐藏面消除
+ *
+ *          gl.enable(gl.DEPTH_TEST) //启动隐藏面消除
+ *          gl.clear(gl.COLOR_BUFFER_BIT || gl.DEPTH_BUFFER_BIT);
+ *
+ *
+ *          启动多边形偏移
  *
  *
  *

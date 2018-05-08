@@ -78,7 +78,7 @@ function createSFMatrix(sx,sy){
   ]);
 }
 
-//点积
+//乘积
 function dot(a,b){
   return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
 }
@@ -100,7 +100,7 @@ function normalize(v){
   }
 }
 
-//差积处理
+//差积处理  是交错相乘
 function cross(a,b){
   let nx = a[1] * b[2] - a[2] * b[1];
   let ny = a[2] * b[0] - a[0] * b[2];
@@ -144,6 +144,16 @@ function getMatrix(x,y,z){
 
 }
 
+//获取透视投影矩阵
+function getTs(fov,aspect,far,near){
+  return new Float32Array([
+
+    1/aspect* Math.tan(fov/2),0,0,0,
+    0,1/Math.tan(fov/2),0,0,
+    0,0,-(far * near)/(far -near),-(far * near * 2)/(far - near),
+    0,0,1,0,
+  ])
+}
 
 
 
