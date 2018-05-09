@@ -28,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="粒子爆炸.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/效果/粒子爆炸.html">
+      <file leaf-file-name="readme.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="328" lean-forward="true" selection-start-line="328" selection-end-line="328" />
+            <state relative-caret-position="84">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -54,6 +54,7 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -87,7 +88,6 @@
         <option value="$PROJECT_DIR$/八、可视范围/缺角现象.html" />
         <option value="$PROJECT_DIR$/九、透视投影/透视投影壶镇.html" />
         <option value="$USER_HOME$/dev/aixuexi-app-student/front/modules/GlodBox.vue" />
-        <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/十、threejs/three基础.html" />
         <option value="$PROJECT_DIR$/九、透视投影/透视投影矩阵.html" />
         <option value="$PROJECT_DIR$/three笔记.js" />
@@ -96,6 +96,7 @@
         <option value="$PROJECT_DIR$/lib.js" />
         <option value="$PROJECT_DIR$/六、视点与视线/指定视点观察图形.html" />
         <option value="$PROJECT_DIR$/效果/粒子爆炸.html" />
+        <option value="$PROJECT_DIR$/readme.md" />
       </list>
     </option>
   </component>
@@ -156,7 +157,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
-    <property name="settings.editor.selected.configurable" value="settings.meteor" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -270,12 +271,15 @@
       <workItem from="1525847327556" duration="1029000" />
       <workItem from="1525850128382" duration="33000" />
       <workItem from="1525850456746" duration="43000" />
-      <workItem from="1525858116172" duration="14000" />
+      <workItem from="1525858116172" duration="334000" />
+      <workItem from="1525858502029" duration="103000" />
+      <workItem from="1525860564172" duration="4000" />
+      <workItem from="1525861936819" duration="220000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67327000" />
+    <option name="totallyTimeSpent" value="67974000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -288,16 +292,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4950495" visible="true" weight="0.17777778" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4950495" visible="true" weight="0.12847222" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32920793" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32868022" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.7227723" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.6497462" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" sideWeight="0.5049505" side_tool="true" weight="0.17847222" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -322,6 +325,13 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/效果/粒子爆炸.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5634">
+          <caret line="313" column="28" lean-forward="true" selection-start-line="313" selection-start-column="28" selection-end-line="313" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
@@ -561,13 +571,6 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Desktop/yang/src/component/contract/Redact.jsx" />
-    <entry file="file://$PROJECT_DIR$/readme.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/九、透视投影/透视投影矩阵.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -633,8 +636,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/效果/粒子爆炸.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="328" lean-forward="true" selection-start-line="328" selection-end-line="328" />
+        <state relative-caret-position="344">
+          <caret line="56" column="21" lean-forward="true" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
