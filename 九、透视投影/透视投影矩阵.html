@@ -7,6 +7,8 @@
 <body>
   <canvas id="webgl" width="500" height="500"></canvas>
   <script>
+    var canvas = document.getElementById('webgl');
+    var gl = canvas.getContext('webgl');
     var vertexShaderSource = "" +
       "attribute vec4 apos;" +
       "attribute vec4 acolor;" +
@@ -14,6 +16,7 @@
       "varying vec4 vcolor;" +
       "void main(){" +
       " gl_Position = uvm * apos;" +
+      " gl_PointSize = 20.0;" +
       " vcolor = acolor;" +
       "}";
     var fragmentShaderSource = "" +
@@ -46,19 +49,120 @@
         v[j] = v[j] / result;
       }
     }
+    function getVm(x,y,z){
+      var eye = new Float32Array([x,y,z]);
+      var lookat = new Float32Array([0.0,0.0,-0.1]);
+      var up = new Float32Array([0,1,1]);
+
+      var za = minus(eye,lookat);
+      normalize(za);
+      normalize(up);
+      var xa = cross(up,za);
+      var ya = cross(za,xa);
+
+      return new Float32Array([
+        xa[0],ya[0],za[0],0,
+        xa[1],ya[1],za[1],0,
+        xa[2],ya[2],za[2],0,
+        -dot(xa,eye),-dot(ya,eye),-dot(za,eye),1
+      ])
+
+    }
+    function mixMatrix(a,b){
+      var result = new Float32Array(16)
+      for(var i = 0;i < 4;i ++){
+        result[i] = a[i] * b[0] + a[i+4] * b[1] + a[i+8] * b[2] + a[i+12] * b[3];
+        result[i+4] = a[i] * b[4] + a[i+4] * b[5] + a[i+8] * b[6] + a[i+12] * b[7];
+        result[i+8] = a[i] * b[8] + a[i+4] * b[9] + a[i+8] * b[10] + a[i+12] * b[11];
+        result[i+12] = a[i] * b[12] + a[i+4] * b[13] + a[i+8] * b[14] + a[i+12] * b[15];
+      }
+      return result;
+    }
     //得到透视投影矩阵
     function getTs(fov,aspect,far,near){
       fov = fov * Math.PI / 180;
       return new Float32Array([
-        1/(aspect * Math.tan(fov / 2)),0,0,0,
-        0,1/Math.tan(fov/2),0,0,
-        0,0,(far + near)/(far-near),-(far * near)/(far - near),
-        0,0,1,0,
+        1/(aspect * Math.tan(fov / 2)),  0,  0,  0,
+        0,  1/Math.tan(fov/2),  0,  0,
+        0,  0,  -(far + near)/(far-near),  -(2*far * near)/(far - near),
+        0,  0,  1,  0,
       ])
     }
+    var buffer = gl.createBuffer();
+    var data = new Float32Array([
+      0.75,1.0,-.8,1.0,1.0,.4,
+      .25,-1.0,-0.8,1.0,1.0,.4,
+      1.0,-1.0,-0.8,1.0,.4,.4,
 
-    //解决之道
+      .75,1.0,0.8,.4,.4,1.0,
+      0.25,-1.0,.8,.4,.4,1.0,
+      1.0,-1.0,.8,1.0,.4,.4,
 
+      -.75,1.0,-.8,1.0,1.0,.4,
+      -1.0,-1.0,-0.8,1.0,1.0,.4,
+      -0.25,-1.0,-0.8,1.0,.4,.4,
+
+      -0.75,1.0,.8,.4,.4,1.0,
+      -1.0,-1.0,.8,.4,.4,1.0,
+      -.25,-1.0,.8,1.0,.4,.4,
+    ])
+    var program = gl.createProgram();
+    var vertexshader = gl.createShader(gl.VERTEX_SHADER);
+    var fragmentshader = gl.createShader(gl.FRAGMENT_SHADER);
+    gl.shaderSource(vertexshader,vertexShaderSource);
+    gl.shaderSource(fragmentshader,fragmentShaderSource);
+    gl.compileShader(vertexshader);
+    gl.compileShader(fragmentshader);
+
+    gl.attachShader(program,vertexshader);
+    gl.attachShader(program,fragmentshader);
+    gl.linkProgram(program);
+    gl.useProgram(program);
+
+    gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
+    gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW)
+
+    var aposlocation = gl.getAttribLocation(program,'apos');
+    var acolorlocation = gl.getAttribLocation(program,'acolor');
+    var vmlocation = gl.getUniformLocation(program,'uvm');
+
+    var BYTE = data.BYTES_PER_ELEMENT;
+    gl.vertexAttribPointer(aposlocation,3,gl.FLOAT,false,BYTE * 6,0);
+    gl.vertexAttribPointer(acolorlocation,3,gl.FLOAT,false,BYTE * 6,BYTE * 3);
+    gl.enableVertexAttribArray(aposlocation);
+    gl.enableVertexAttribArray(acolorlocation);
+
+    var x = 0.1;
+    var y = 0.3;
+    var z = 0.5;
+    function draw(x,y,z){
+      var vm = getVm(x,y,z);
+      var uvm = getTs(30,canvas.width / canvas.height,1,100);
+      gl.uniformMatrix4fv(vmlocation,false,mixMatrix(vm,uvm));
+
+      gl.clearColor(0.0,0.0,0.0,0.8);
+      gl.enable(gl.DEPTH_TEST);
+      gl.clear(gl.COLOR_BUFFER_BIT || gl.DEPTH_BUFFER_BIT);
+      gl.drawArrays(gl.TRIANGLES,0,12);
+    }
+    document.onkeydown = function(e){
+      switch(e.keyCode){
+        case 37 : x -= 0.01;
+          break;
+        case 38 : y += 0.01;
+          break;
+        case 39 : x += 0.01;
+          break;
+        case 40 : y -= 0.01;
+          break;
+        case 17 : z -= 0.01;
+          break;
+        case 18 : z += 0.01;
+          break;
+      }
+      draw(x,y,z)
+    }
+    draw(x,y,z);
  </script>
 </body>
 </html>

@@ -112,45 +112,42 @@ function cross(a,b){
 function getVm(l,r,t,b,f,n){
   //接受的六个参数分别是left,right,top,bottom,far,near
   return new Float32Array([
-    2/(r - l) ,0 ,0 ,0 ,
-    0, 2/(t - b),0,0,
-    0,0,-2/(f - n),0,
-    -(r+l)/(r-l),
-    -(t+b)/(t-b),
-    -(f+n)/(f-n),
-    1
+    2/(r - l) ,            0 ,             0 ,          0,
+        0,             2/(t - b),          0,           0,
+        0,                 0,         -2/(f - n),       0,
+    -(r+l)/(r-l),    -(t+b)/(t-b),   -(f+n)/(f-n),      1
   ])
 }
 
 //获取视图矩阵
-function getMatrix(x,y,z){
+function getMatrix(x,y,z,ax,ay,az){
   var eye = new Float32Array([x,y,z]);
-  var lookat = new Float32Array([0.0,0.0,0.0]);
+  var lookat = new Float32Array([ax,ay,az]);
   var up = new Float32Array([0,1,1]);
 
-  var z = minus(eye,lookat);
+  var za = minus(eye,lookat);
   normalize(up);
   normalize(z);
 
-  var x = cross(up,z);
+  var xa = cross(up,z);
   normalize(x);
-  var y = cross(z,x);
+  var ya = cross(z,x);
   return new Float32Array([
-    x[0],y[0],z[0],0,
-    x[1],y[1],z[1],0,
-    x[2],y[2],z[2],0,
-    -dot(x,eye),-dot(y,eye),-dot(z,eye),1
+    xa[0],ya[0],za[0],0,
+    xa[1],ya[1],za[1],0,
+    xa[2],ya[2],za[2],0,
+    -dot(xa,eye),-dot(ya,eye),-dot(za,eye),1
   ])
 
 }
 
 //获取透视投影矩阵
 function getTs(fov,aspect,far,near){
+  fov = Math.PI * fov / 180;
   return new Float32Array([
-
     1/aspect* Math.tan(fov/2),0,0,0,
     0,1/Math.tan(fov/2),0,0,
-    0,0,-(far * near)/(far -near),-(far * near * 2)/(far - near),
+    0,0,-(far + near)/(far -near),-(far * near * 2)/(far - near),
     0,0,1,0,
   ])
 }
