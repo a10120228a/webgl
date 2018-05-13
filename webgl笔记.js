@@ -386,6 +386,32 @@
  *
  *
  *
+ * 索引法绘制立方体
+ *    var indices = new Unit8Array([
+ *      0,1,2,3,4,5,
+ *      2,3,4,4,5,6,
+ *    ])
+ *
+ *    写完索引之后创建一个buffer
+ *    var buffer = gl.createBuffer()
+ *    gl.bindBUffer(gl.ElEMENT_ARRAY_BUFFER,buffer);
+ *
+ *    gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,indices,gl.STATIC_DRAW);
+ *
+ *
+ *    然后绘制的方法名
+ *
+ *      gl.drawArrays
+ *
+ *    改成
+ *
+ *      gl.drawElements(gl.TRIANGLES,indicex.length,gl.UNSIGNED_BYTE,0);
+ *
+ *
+ *
+ *
+ *
+ *
  *
  *
  */

@@ -5,11 +5,137 @@
   <title>three基础代码</title>
 </head>
 <body>
-  <canvas id="webgl" width="500" height="500"></canvas>
-  <script src="../module/three.js/three.js"></script>
-  <script src="../module/jquery/dist/jquery.js"></script>
+  <script src="https://cdn.bootcss.com/three.js/92/three.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
   <script>
+    /*  var scene = new THREE.Scene();创建一个场景
 
+        var camera = new THREE.PerspectiveCamera(视角，宽高比例，最近距离，最远距离); 创建一个相机
+    *   第一个参数一般不超过60度   第二个参数是window.innerWidth / window.innerHeight   第三个0.1    第四个 1000；
+    *
+    *   var renderer = new THREE.WebGlRenderer(); 创建一个绘制场景
+    *
+    *
+    *   var clearColor = new THREE.Color(0xEEEEEE)  创建一个颜色对象
+    *   renderer.setClearColor(clearColor)
+    *
+    *   renderer.setSize(window.innerWidth,window.innerHeight)
+    *
+    *   绘制一个平面
+    *   var planeGeometry = new THREE.PlaneGeometry(60,20);
+    *
+    *   var planeMatrial = new THREE.MeshBasicMatreial({
+        *     color:'red'
+        *   })
+      *
+      *   var plane = new THREE.Mesh(planeGeometry,planeMatrial);
+    *
+    *   plane.rotation.x = .5 * Math.PI;
+    *   plane.position.x = 14;
+    *   plane.position.y = 0;
+    *   plane.position.z = 0;
+    *   scene.add(plane);
+    *
+    *
+    *
+    *   绘制立方体的步骤
+    *
+    *   var cubeMeometry = new THREE.BoxGeometry(4,4,4);
+    *   var cubeMaterial = new THREE.meshBasicMaterial({
+        *     color:0xff0000,wireFrame:true
+        *   })
+      *   var cube = new THREE.Mesh(cubeMeometry,cubeMaterial);
+    *
+    *   cube.position.x = 2;
+    *   cube.position.y = 2;
+    *   cube.position.z = 2;
+    *   scene.add(cube);
+    *
+    *   绘制球面体
+    *
+    *
+    *   var sphereGeometry = new THREE.SphereGeometry(4,20,20);
+    *   var sphereMaterial = new THREE.MeshBasicMaterial({
+      *     color:'red',wireframe:true
+      *   })
+      *==============wireframe:true是否开启线框式绘图，因为在没有光照的情况下，纯色的图形是看不出来立体感的，只能通过线框式的绘图
+    *
+    *   var sphere = new THREE.Mesh(sphereGeometry,sphereMaterial);
+    *   sphere.position.x = 2;
+    *   sphere.position.y = 2;
+    *   sphere.position.z = 2;
+    *   scene.add(sphere);
+    *
+    *   //相机设置
+    *   camera.position.x = 10;
+    *   camera.position.y = 20;
+    *   camera.position.z = 30;
+    *
+    *   //设置一个lookat
+    *
+    *   camera.lookAt(scene.position);
+    *
+    *   通过renderer得到一个domElement
+    *
+    *   $(document.body).append(renderer.domElement);
+    *
+    *
+    *灯光和材质
+    *
+    *   var spotLight = new THREE.SpotLight()
+      *
+      *   var scene = new THREE.Scene();
+    *   var camera = new THREE.PerspectiveCamera(45,window.innerWidth / window.innerHeight,0.1,1000);
+    *   var renderer = new THREE.Renderer();
+    *   renderer.setClearColor(new THREE.Color(0xEEEEEE,1.0));
+    *   renderer.setSize(window.innerWidth,window.innerHeight);
+    *   //启动阴影效果，阴影是特别消耗内存的，所以在需要的时候才能开启
+    *   renderer.shadowMapEnabled = true;
+    *
+    *   var planeGeometry = new THREE.PlaneGeometry(60,20);
+    *   var planeMaterial = new THREE.MeshLamberMaterial();
+    *   var plane = new THREE.Mesh(planeGeometry,planeMaterial);
+    *   plane.receiveShadow = true;
+    *   plane.rotation.x = -.5 * Math.PI;
+    *   plane.position.x = 1;
+    *   plane.position.y = 2;
+    *   plane.position.z = 3;
+    *   scene.add(plane);
+    *
+    *   var cubeGeometry = new THREE.BoxGeometry();
+    *   var cubeMaterial = new THREE.MeshLamberMaterial({颜色});
+    *   var cube = new THREE.Mesh(cubeGeometry,cubeMaterial)
+    *
+    *   cube.castShadow = true;
+    *   cube.position.x = 1;
+    *   cube.position.y = 1;
+    *   cube.position.z = 1;
+    *
+    *   scene.add(cube)
+    *
+    *   设置相机
+    *   camera.position.x = 10;
+    *   camera.position.y = 10;
+    *   camera.position.z = 20;
+    *   camera.lookAt(scene.position)
+    *
+    *
+    *   //创建光源
+    *
+    *   var spotLight = new THREE.SpotLight(光源颜色)
+    *   spotLight.position.set(x,y,z)将光设置在哪一个位置
+    *   spotLight.castShadow = true;
+    *   scene.add(spotLight);
+    *
+    *   document.body.appendChild(renderer.domElement);
+    *   renderer.render(scene,camera)
+    *
+    *
+    *   requestAnimationFrame()这个方法可以代替setInterval来实现动画效果
+    *
+    *
+    *
+    *   */
   </script>
 </body>
 </html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.bootcss.com/three.js/92/three.js"></script>
+</head>
+<body>
+<script>
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(45,window.innerWidth / window.innerHeight,1,1000);
+  var renderer = new THREE.WebGLRenderer();
+  renderer.setClearColor(new THREE.Color('aqua'));
+  renderer.setSize(window.innerWidth,window.innerHeight);
+  renderer.shadowMap.enabled = true;
+
+  var planeGeometry = new THREE.PlaneGeometry(20,30,1,1);
+  var planeMaterial = new THREE.MeshLambertMaterial({color:0xFF0000});
+  var plane = new THREE.Mesh(planeGeometry,planeMaterial);
+  plane.rotation.x = -.5 * Math.PI;
+  plane.position.x = 0;
+  plane.position.y = -4;
+  plane.position.z = 0;
+  scene.add(plane);
+
+  var cubeGeometry = new THREE.BoxGeometry(5,5,5);
+  var cubeMaterial = new THREE.MeshLambertMaterial({color:0x00fff0});
+  var cube = new THREE.Mesh(cubeGeometry,cubeMaterial);
+  cube.castShadow = true;
+  cube.position.set(1,2,3);
+
+  scene.add(cube);
+
+
+  var spotLight = new THREE.SpotLight(0xFFFFFF);
+  spotLight.position.set(-10,20,20);
+  spotLight.castShadow = true;
+
+  function render(){
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.01;
+    cube.rotation.z += 0.01;
+    if(spotLight.intensity >= 2){
+      spotLight.intensity = 2;
+    }
+    spotLight.intensity += 0.001;
+    scene.add(spotLight);
+
+    camera.position.set(-30,40,30);
+    camera.lookAt(scene.position);
+
+    document.body.appendChild(renderer.domElement);
+    renderer.render(scene,camera);
+    requestAnimationFrame(render);
+  }
+  render();
+
+</script>
+</body>
+</html>

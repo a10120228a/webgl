@@ -10,7 +10,6 @@ function initShader(gl,vertexShaderSource,fragmentShaderSource){
   gl.compileShader(vertexShader);
   gl.compileShader(fragmentShader);
 
-
   let program = gl.createProgram();
 
   gl.attachShader(program,vertexShader);
@@ -151,33 +150,3 @@ function getTs(fov,aspect,far,near){
     0,0,1,0,
   ])
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

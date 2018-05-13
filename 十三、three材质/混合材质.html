@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.bootcss.com/three.js/92/three.js"></script>
+</head>
+<body>
+<script>
+  function createMaterial(geom){
+    let meter = new THREE.MeshNormalMaterial();
+    let aa = new THREE.MeshBasicMaterial();
+    return THREE.SceneUtils.createMultiMaterialObject(geom,[meter,aa])
+  }
+</script>
+</body>
+</html>

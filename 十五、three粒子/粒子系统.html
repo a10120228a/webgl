@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>webgl粒子效果</title>
+  <script src="https://cdn.bootcss.com/three.js/92/three.js"></script>
+</head>
+<body>
+  <script>
+
+    let scene = new THREE.Scene();
+    let camera = new THREE.PerspectiveCamera(45,window.innerWidth / window.innerHeight,1,1000);
+    let renderer = new THREE.WebGLRenderer();
+    renderer.setClearColor(new THREE.Color(0x000000));
+    renderer.setSize(window.innerWidth,window.innerHeight);
+    renderer.shadowMap.enabled = true;
+    camera.position.set(0,0,155);
+    document.body.appendChild(renderer.domElement);
+
+    // createSprite();
+
+    //创建精灵
+    // function createSprite(){
+    //   let material = new THREE.SpriteMaterial();
+    //       let sprite = new THREE.Sprite(material);
+    //       sprite.position.set(10,10,0);
+    //       scene.add(sprite);
+    // }
+
+    // function create(){
+    //   var geo = new THREE.Geometry();//先创建骨架然后创建材质
+    //   var material = new THREE.PointsMaterial({
+    //     size:5,
+    //     vertexColors:true,
+    //     color:0xff0000
+    //   })
+    //   var particle = new THREE.Vector3(0,0,0);设置纹理位置
+    //   geo.vertices.push(particle); 添加到物体中
+    //   geo.colors.push(new THREE.Color(0xffffff));物体中添加颜色
+    //
+    //   var cloud = new THREE.Points(geo,material);统一管理粒子
+    //   scene.add(cloud);
+    // }
+    // create();
+
+    //创建render函数
+    function render(){
+      // window.requestAnimationFrame(render);
+      renderer.render(scene,camera);
+    }
+    render();
+  </script>
+</body>
+</html>

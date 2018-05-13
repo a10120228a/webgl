@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>精灵</title>
+  <script src="https://cdn.bootcss.com/three.js/92/three.js"></script>
+</head>
+<body>
+  <script>
+    let scene = new THREE.Scene();
+    let camera = new THREE.PerspectiveCamera(45,window.innerWidth / window.innerHeight,.1,1000);
+
+    let renderer = new THREE.WebGLRenderer();
+    renderer.setClearColor(new THREE.Color(0x000000,1.0));
+    renderer.setSize(window.innerWidth,window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+    camera.position.set(-20,0,0);
+
+
+    let geo;
+
+    sprites();
+    render();
+    function sprites(){
+      geo = new THREE.Object3D();
+      let range = 200;
+      for(let j = 0;j < 200;j ++){
+        geo.add(createSprite(10,true,1,0xff0000,j % 5,range));
+      }
+      scene.add(geo);
+    }
+    function texture(){
+      return new THREE.TextureLoader('./dian.jpeg');
+    }
+
+
+    //创建精灵的方法
+    function createSprite(size,t,o,c,sn,range){
+      let spriteMaterial = new THREE.SpriteMaterial({
+        opacity:o,
+        color:0xffffff,
+        transparent:t,
+        map:texture()
+      });
+      spriteMaterial.map.offset = new THREE.Vector2(0.2 * sn,0);
+      spriteMaterial.map.repeat = new THREE.Vector2(.5,1);
+      spriteMaterial.depthTest = false;
+      spriteMaterial.blending = THREE.AdditiveBlending;
+      let sprite = new THREE.Sprite(spriteMaterial);
+      sprite.position.set(size,size,size);
+      sprite.position.set(
+        Math.random() * range - range / 2,
+        Math.random() * range - range / 2,
+        Math.random() * range - range / 2
+      );
+      sprite.velocityX = 5;
+      return sprite;
+    }
+    function render(){
+      geo.rotation.x += 0.01;
+      requestAnimationFrame(render);
+      renderer.render(scene,camera);
+    }
+  </script>
+</body>
+</html>

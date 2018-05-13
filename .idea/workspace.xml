@@ -2,16 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02d4834a-27fc-4b7d-ad41-b99f5cf62981" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/three笔记.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/十、threejs/three基础.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/十、threejs/画一个立方体或者球.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/十一、three基本组件/几何与网格对象.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/十一、three基本组件/场景.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/十一、three基本组件/相机.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/十三、three材质/混合材质.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/十二、three光源/光源概述.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/十五、three粒子/demo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/十五、three粒子/使用canvas作为纹理.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/十五、three粒子/使用图片作为纹理.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/十五、three粒子/粒子系统.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/十五、three粒子/精灵.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/指定视点观察图形/开发视图矩阵所做的几个辅助函数.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/指定视点观察图形/最终方法.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/three笔记.js" beforeDir="false" afterPath="$PROJECT_DIR$/three笔记.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webgl笔记.js" beforeDir="false" afterPath="$PROJECT_DIR$/webgl笔记.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/七、贴图/贴图技术.html" beforeDir="false" afterPath="$PROJECT_DIR$/七、贴图/贴图技术.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/九、透视投影/透视投影矩阵.html" beforeDir="false" afterPath="$PROJECT_DIR$/九、透视投影/透视投影矩阵.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/六、视点与视线/指定视点观察图形.html" beforeDir="false" afterPath="$PROJECT_DIR$/六、视点与视线/指定视点观察图形.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/六、视点与视线/视点、目标点和上方向.html" beforeDir="false" afterPath="$PROJECT_DIR$/六、视点与视线/视点、目标点和上方向.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/十、threejs/three基础.html" beforeDir="false" afterPath="$PROJECT_DIR$/十、threejs/three基础.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,12 +35,21 @@
     <favorites_list name="webgl" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="readme.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/readme.md">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="three笔记.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/three笔记.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="12" column="15" lean-forward="true" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+            <state relative-caret-position="724">
+              <caret line="362" column="19" selection-start-line="362" selection-start-column="19" selection-end-line="362" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="精灵.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/十五、three粒子/精灵.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="800">
+              <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -51,7 +68,13 @@
     <findStrings>
       <find>G</find>
       <find>1f</find>
+      <find>three</find>
+      <find>0</find>
+      <find>color</find>
     </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/node_modules/_three@0.92.0@three/examples</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
@@ -88,15 +111,28 @@
         <option value="$PROJECT_DIR$/八、可视范围/缺角现象.html" />
         <option value="$PROJECT_DIR$/九、透视投影/透视投影壶镇.html" />
         <option value="$USER_HOME$/dev/aixuexi-app-student/front/modules/GlodBox.vue" />
-        <option value="$PROJECT_DIR$/十、threejs/three基础.html" />
         <option value="$PROJECT_DIR$/九、透视投影/透视投影矩阵.html" />
-        <option value="$PROJECT_DIR$/three笔记.js" />
         <option value="$PROJECT_DIR$/七、贴图/贴图技术.html" />
-        <option value="$PROJECT_DIR$/webgl笔记.js" />
         <option value="$PROJECT_DIR$/lib.js" />
         <option value="$PROJECT_DIR$/六、视点与视线/指定视点观察图形.html" />
         <option value="$PROJECT_DIR$/效果/粒子爆炸.html" />
         <option value="$PROJECT_DIR$/readme.md" />
+        <option value="$PROJECT_DIR$/十、threejs/three基础.html" />
+        <option value="$PROJECT_DIR$/十、threejs/画一个立方体或者球.html" />
+        <option value="$PROJECT_DIR$/十一、基本组件/场景.html" />
+        <option value="$PROJECT_DIR$/十一、基本组件/几何与网格对象.html" />
+        <option value="$PROJECT_DIR$/十一、基本组件/相机.html" />
+        <option value="$PROJECT_DIR$/十一、three基本组件/相机.html" />
+        <option value="$PROJECT_DIR$/webgl笔记.js" />
+        <option value="$PROJECT_DIR$/宝箱.vue" />
+        <option value="$PROJECT_DIR$/十一、three基本组件/场景.html" />
+        <option value="$PROJECT_DIR$/十二、three光源/光源概述.html" />
+        <option value="$PROJECT_DIR$/十三、three材质/混合材质.html" />
+        <option value="$PROJECT_DIR$/十五、three粒子/粒子系统.html" />
+        <option value="$PROJECT_DIR$/十五、three粒子/使用图片作为纹理.html" />
+        <option value="$PROJECT_DIR$/十五、three粒子/使用canvas作为纹理.html" />
+        <option value="$PROJECT_DIR$/十五、three粒子/精灵.html" />
+        <option value="$PROJECT_DIR$/three笔记.js" />
       </list>
     </option>
   </component>
@@ -117,22 +153,28 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
-      <path value="$PROJECT_DIR$/module/three.js/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/_three@0.92.0@three/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/three/package.json" />
     </packageJsonPaths>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
+    <option name="x" value="883" />
     <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="877" />
+    <option name="width" value="797" />
+    <option name="height" value="1027" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -140,11 +182,20 @@
               <item name="webgl" type="b2602c69:ProjectViewProjectNode" />
               <item name="webgl" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="webgl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webgl" type="462c0819:PsiDirectoryNode" />
+              <item name="七、贴图" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webgl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webgl" type="462c0819:PsiDirectoryNode" />
+              <item name="十五、three粒子" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -157,10 +208,15 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/十五、three粒子" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/十五、three粒子" />
       <recent name="$PROJECT_DIR$/module" />
       <recent name="$PROJECT_DIR$/webgl基本知识" />
       <recent name="$PROJECT_DIR$" />
@@ -274,12 +330,21 @@
       <workItem from="1525858116172" duration="334000" />
       <workItem from="1525858502029" duration="103000" />
       <workItem from="1525860564172" duration="4000" />
-      <workItem from="1525861936819" duration="753000" />
+      <workItem from="1525861936819" duration="950000" />
+      <workItem from="1525939348528" duration="7026000" />
+      <workItem from="1526003096486" duration="5798000" />
+      <workItem from="1526011077545" duration="66000" />
+      <workItem from="1526021967639" duration="515000" />
+      <workItem from="1526025972927" duration="280000" />
+      <workItem from="1526027486550" duration="96000" />
+      <workItem from="1526027945482" duration="20000" />
+      <workItem from="1526081970061" duration="16676000" />
+      <workItem from="1526182580037" duration="2760000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68507000" />
+    <option name="totallyTimeSpent" value="101941000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -291,18 +356,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <frame x="883" y="23" width="797" height="1027" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4950495" visible="true" weight="0.12847222" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4950495" visible="true" weight="0.0" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32868022" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.6497462" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.17377399" />
       <window_info id="Favorites" order="2" sideWeight="0.5049505" side_tool="true" weight="0.17847222" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -321,84 +387,14 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/效果/粒子爆炸.html">
+    <entry file="file://$PROJECT_DIR$/十五、three粒子/精灵.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5634">
-          <caret line="313" column="28" lean-forward="true" selection-start-line="313" selection-start-column="28" selection-end-line="313" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="45" column="44" selection-start-line="45" selection-start-column="44" selection-end-line="45" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/八、可视范围/缺角现象.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="44" column="45" lean-forward="true" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/八、可视范围/可视范围.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webgl笔记.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2674">
-          <caret line="191" column="71" lean-forward="true" selection-start-line="191" selection-start-column="71" selection-end-line="191" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="26" selection-start-line="26" selection-end-line="38" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/六、视点与视线/指定视点观察图形.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1288">
-          <caret line="92" lean-forward="true" selection-start-line="92" selection-end-line="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webgl笔记.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2142">
-          <caret line="153" column="34" selection-start-line="153" selection-start-column="34" selection-end-line="153" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="46" column="28" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/五、数据信息传入着色器技术/根据区域设定图形颜色.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="19" column="35" lean-forward="true" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/五、数据信息传入着色器技术/顶点的数据传到片元中.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="29" column="45" lean-forward="true" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
+        <state relative-caret-position="936">
+          <caret line="52" column="23" lean-forward="true" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -563,13 +559,6 @@
         <state relative-caret-position="-1587" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/十、threejs/three基础.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/yang/src/component/contract/Redact.jsx" />
     <entry file="file://$PROJECT_DIR$/九、透视投影/透视投影矩阵.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -585,20 +574,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/七、贴图/贴图技术.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="145" column="24" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/六、视点与视线/视点控制实例.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -610,20 +585,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="8" column="25" lean-forward="true" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webgl笔记.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="297" column="11" lean-forward="true" selection-start-line="297" selection-start-column="11" selection-end-line="297" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/three笔记.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -645,6 +606,125 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="12" column="15" lean-forward="true" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="145" column="24" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/十、threejs/画一个立方体或者球.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="980">
+          <caret line="55" column="49" lean-forward="true" selection-start-line="55" selection-start-column="2" selection-end-line="55" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/十、threejs/three基础.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="121" column="5" lean-forward="true" selection-start-line="121" selection-start-column="5" selection-end-line="121" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webgl笔记.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="404" column="2" lean-forward="true" selection-start-line="404" selection-start-column="2" selection-end-line="404" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/十一、three基本组件/相机.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="11" lean-forward="true" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/十一、three基本组件/几何与网格对象.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="38" column="33" lean-forward="true" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/宝箱.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="873">
+          <caret line="343" column="41" selection-start-line="343" selection-start-column="41" selection-end-line="343" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/十二、three光源/光源概述.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="20" column="23" lean-forward="true" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/十一、three基本组件/场景.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="5" column="70" lean-forward="true" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/十三、three材质/混合材质.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/十五、three粒子/粒子系统.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="30" column="53" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/七、贴图/贴图技术.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/十五、three粒子/使用图片作为纹理.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="19" column="8" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/十五、three粒子/使用canvas作为纹理.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/十五、three粒子/精灵.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/three笔记.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="724">
+          <caret line="362" column="19" selection-start-line="362" selection-start-column="19" selection-end-line="362" selection-end-column="19" />
         </state>
       </provider>
     </entry>

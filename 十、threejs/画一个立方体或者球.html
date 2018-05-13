@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.bootcss.com/three.js/92/three.js"></script>
+</head>
+<body>
+<script>
+  var scene = new THREE.Scene();
+
+  var camera = new THREE.PerspectiveCamera(45,window.innerWidth/window.innerHeight,0.1,1000);
+
+  var renderer = new THREE.WebGLRenderer();
+
+  renderer.setClearColor(new THREE.Color(0xcccccc));
+  renderer.setSize(window.innerWidth,window.innerHeight);
+
+  renderer.shadowMapEnabled = true;
+
+  var planeGeometry = new THREE.PlaneGeometry(20,20);
+  var planeMaterial = new THREE.MeshLambertMaterial({color:0xcccccc});
+  var plane = new THREE.Mesh(planeGeometry,planeMaterial);
+  plane.receiveShadow = true;
+  plane.rotation.x = -.5 * Math.PI;
+  plane.position.x = 1;
+  plane.position.y = 2;
+  plane.position.z = 3;
+  scene.add(plane);
+
+
+  var sphereGeometry = new THREE.SphereGeometry(1,25,25);
+  var sphereMaterial = new THREE.MeshLambertMaterial({color:0x00ff00})
+
+  var cube = new THREE.Mesh(sphereGeometry,sphereMaterial);
+  cube.castShadow = true;
+  cube.receiveShadow = true;
+  cube.position.x = 2;
+  cube.position.y = 4;
+  cube.position.z = 5;
+
+  scene.add(cube);
+
+  camera.position.x = 10;
+  camera.position.y = 20;
+  camera.position.z = 30;
+  camera.lookAt(scene.position);
+
+  var spotx = -20;
+
+  var spotLight = new THREE.SpotLight(0x00fff0);
+  spotLight.position.set(spotx,20,10);
+  spotLight.castShadow = true;
+  scene.add(spotLight);
+
+  document.body.appendChild(renderer.domElement);
+  var offset = 0.03;
+  function render(){
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.01;
+    cube.position.y += offset;
+    cube.rotation.z += 0.01;
+    if(cube.position.y >= 7.0){
+      offset = -offset;
+    }else if(cube.position.y <= 4.0){
+      offset = -offset;
+    }
+    requestAnimationFrame(render);
+    renderer.render(scene,camera);
+  }
+  render()
+
+
+
+</script>
+</body>
+</html>
